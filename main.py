@@ -43,7 +43,7 @@ res = open('results.txt', 'a')
 for list in emails_to_check:
     for email in list:
         req = requests.get(r"https://haveibeenpwned.com/api/v3/breachedaccount/"+email, headers={
-            "hibp-api-key": "your api key here"  # put your api key between the brackets
+            "hibp-api-key": "your api key here"  # put your api key between the brackets #if u get a problem here, try adding the User-Agent header
         })
         res.write(email+":")
         res.write("\n")
