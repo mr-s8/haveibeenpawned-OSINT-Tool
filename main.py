@@ -26,7 +26,7 @@ for line in get_names:
     # deleting the \n character that is created when u add a new line to a textfile
     names_to_check.append(line.strip())
 
-# splitting the text in every line and putting it into a list, so we now
+# splitting the text in every line and putting it into a list
 counter = 0
 emails_to_check = []
 for fullname in names_to_check:
@@ -45,6 +45,8 @@ for list in emails_to_check:
         req = requests.get(r"https://haveibeenpwned.com/api/v3/breachedaccount/"+email, headers={
             "hibp-api-key": "your api key here"  # put your api key between the brackets
         })
+        res.write(email+":")
+        res.write("\n")
         res.write(req)
         res.write("\n\n")
 res.write("\n")
@@ -56,4 +58,5 @@ things i add mby:
 -add a mode for phone numbers or use name and phonenumber at the same time
 -print error if only a first or a last name is given in a line in the names.txt file
 -print error if three names are given in names.txt file or a the add the function to create emails consistin of three names
+-dont write to results.txt if no breach is found
 """
